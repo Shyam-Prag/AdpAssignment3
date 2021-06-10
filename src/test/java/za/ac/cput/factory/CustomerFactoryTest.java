@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import za.ac.cput.entity.Customer;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*  CustomerFactoryTest.java
@@ -49,7 +51,16 @@ class CustomerFactoryTest
     @Timeout(1)
     void testCustomerTimeout()
     {
-
+        try
+        {
+            TimeUnit.SECONDS.sleep(2);
+            System.out.println("Timeout test PASSED");
+        }
+        catch(InterruptedException iEx)
+        {
+            System.out.println("Exception: "+iEx.getMessage());
+            System.out.println("Test timed out");
+        }
     }
 
     @Test
