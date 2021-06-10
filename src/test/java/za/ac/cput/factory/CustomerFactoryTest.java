@@ -27,12 +27,6 @@ class CustomerFactoryTest
         cus2=CustomerFactory.createCustomer("Susan", "Mary");
     }
 
-    /*@Test
-    void createCustomer()
-    {
-
-    }*/
-
     @Test
     void testCustomerIdentity()
     {
