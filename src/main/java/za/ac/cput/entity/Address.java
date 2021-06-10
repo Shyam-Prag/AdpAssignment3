@@ -41,6 +41,7 @@ public class Address {
             return new Address(this);
         }
     }
+
     private Address(Builder builder){
         this.street=builder.street;
         this.houseNumber=builder.houseNumber;
