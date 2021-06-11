@@ -1,6 +1,11 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Contact;
+/**
+ * Contact.java
+ * Factory Contact
+ * @author Sayed Abdurra'uf Peters 218149859
+ */
 
 public class ContactFactory {
     public static Contact buildContact(
