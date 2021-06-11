@@ -5,9 +5,14 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import za.ac.cput.entity.Contact;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+/**
+ * Contact.java
+ * Test Contact
+ * @author Sayed Abdurra'uf Peters 218149859
+ */
 
 public class ContactFactoryTest {
     Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
