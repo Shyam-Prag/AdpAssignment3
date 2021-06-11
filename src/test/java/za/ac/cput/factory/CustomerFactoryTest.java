@@ -58,7 +58,7 @@ class CustomerFactoryTest
     }
 
     @Test
-    @Disabled("Test temporarily disabled due to maintainence.")
+    @Disabled("Test temporarily disabled due to maintenance.")
     void testCustomerDisabled()
     {
         assertEquals(cus1, cus2);
