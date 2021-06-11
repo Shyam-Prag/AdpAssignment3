@@ -1,8 +1,8 @@
 package za.ac.cput.entity;
 
 /**
- * This is an Account Class
- *
+ * Account.java
+ * Entity for Bank class
  * @author SIPHELELE NYATHI 218334028
  * 10/06/2021
  */
