@@ -1,5 +1,11 @@
 package za.ac.cput.entity;
 
+/* Customer.java
+ Entity for the Customer
+ Author: Cameron Noemdo 219115443
+ Date: 10/06/21
+*/
+
 public class Customer
 {
     private String firstName, lastName;
