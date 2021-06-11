@@ -11,7 +11,7 @@ public class Statement {
     private final String firstName;
     private final String lastName;
 
-    private Statement(Statement.StatementBuilder builder) {
+    public Statement(Statement.StatementBuilder builder) {
         this.balance = builder.balance;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
