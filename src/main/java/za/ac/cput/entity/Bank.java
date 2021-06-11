@@ -1,5 +1,7 @@
 package za.ac.cput.entity;
 
+import za.ac.cput.factory.BankFactory;
+
 /**
  * Bank Class
  * @author Emeka Thato Nwamadi
@@ -25,6 +27,11 @@ public class Bank {
 
         public Bank build(){
             return new Bank(this);
+        }
+
+        public bankBuilder setName(String name) {
+            this.name = "Bank name";
+            return this;
         }
     }
     private Bank(bankBuilder builder){
