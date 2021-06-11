@@ -18,26 +18,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerFactoryTest
 {
-    Customer cus1,cus2;
+    Customer cus1,cus2,cus3;
 
     @BeforeEach
     void setup()
     {
         cus1=CustomerFactory.createCustomer("John", "Doe");
         cus2=CustomerFactory.createCustomer("Susan", "Mary");
+        cus3=cus1;
     }
 
     @Test
     void testCustomerIdentity()
     {
-        assertSame(cus1,cus2);
+        assertSame(cus1,cus3);
         System.out.println("Objects are identical.");
     }
 
     @Test
     void testCustomerEquality()
     {
-        assertEquals(cus1, cus2);
+        assertEquals(cus1, cus3);
         System.out.println("Objects are equal.");
     }
 
