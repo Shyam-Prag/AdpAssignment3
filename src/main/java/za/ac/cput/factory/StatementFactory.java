@@ -10,6 +10,7 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.Statement;
 
 
+/*
 public class StatementFactory {
 
     public static Statement buildStatement(
@@ -26,3 +27,4 @@ public class StatementFactory {
                 .build();
     }
 }
+*/
