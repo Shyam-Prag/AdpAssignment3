@@ -6,53 +6,19 @@ package za.ac.cput.entity;
  Date: 10/06/21
 */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="Customer")
 public class Customer
 {
-    @Id
-    @GeneratedValue
-    private String id,firstName, lastName;
+    private String firstName, lastName;
 
     private Customer (Builder build)
     {
-        this.id=build.id;
         this.firstName=build.firstName;
         this.lastName= build.lastName;
     }
-    public Customer()
-    {
-
-    }
-
-    public String getId()
-    {
-        return id;
-    }
-    public String getFirstName()
-    {
-        return firstName;
-    }
-    public String getLastName()
-    {
-        return lastName;
-    }
-
 
     public static class Builder
     {
-        private String id,firstName, lastName;
-
-        public Builder setID(String id)
-        {
-            this.id=id;
-            return this;
-        }
+        private String firstName, lastName;
 
         public Builder setFirstName(String firstName)
         {
@@ -70,6 +36,5 @@ public class Customer
         {
             return new Customer(this);
         }
-
     }
 }
