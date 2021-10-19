@@ -28,7 +28,7 @@ public class AddressController {
         return addressService.read(addressId);
     }
 
-    @PutMapping("/update")
+    @PostMapping("/update")
     public Address update(@RequestBody Address address) {
         return addressService.update(address);
     }
