@@ -4,7 +4,7 @@ package za.ac.cput.entity;
  * Entity for the Statement class
  * Author: Waseem Osman (216112338)
  * 10/06/2021
- *
+ *nm
  */
 
 import javax.persistence.Entity;
