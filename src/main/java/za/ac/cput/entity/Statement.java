@@ -24,7 +24,7 @@ public class Statement {
     public Statement(){
 
     }
-
+ 
     private Statement(Builder builder) {
         this.id = builder.id;
         this.balance = builder.balance;
@@ -67,8 +67,8 @@ public class Statement {
             this.balance=balance;
             return this;
         }
-
-
+        
+        
 
         public Statement.Builder setFirstName(String firstName)
         {
@@ -98,4 +98,3 @@ public class Statement {
                 '}';
     }
 }
-
