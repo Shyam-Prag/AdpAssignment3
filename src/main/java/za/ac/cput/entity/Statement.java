@@ -35,7 +35,7 @@ public class Statement {
     {
         return id;
     }
-    public String getBalance()
+    public double getBalance()
     {
         return balance;
     }
