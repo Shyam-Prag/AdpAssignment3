@@ -19,7 +19,7 @@ public class StatementController {
 
     @PostMapping("/create")
     public Statement create(@RequestBody Statement statement){
-        Statement newStatement1 = StatementFactory.buildStatement(statement.getUuid(), statement.getBalance(), statement.getFirstName(), statement.getLastName());
+        Statement newStatement1 = StatementFactory.buildStatement(statement.getId(),statement.getBalance(), statement.getFirstName(), statement.getLastName());
         return statementService.create(newStatement1);
     }
 
