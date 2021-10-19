@@ -6,8 +6,17 @@ package za.ac.cput.entity;
  Date: 10/06/21
 */
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Customer")
 public class Customer
 {
+    @Id
+    @GeneratedValue
     private String id,firstName, lastName;
 
     private Customer (Builder build)
@@ -15,6 +24,10 @@ public class Customer
         this.id=build.id;
         this.firstName=build.firstName;
         this.lastName= build.lastName;
+    }
+    public Customer()
+    {
+
     }
 
     public String getId()
