@@ -7,13 +7,16 @@ package za.ac.cput.factory;
  * 10/06/2021
  */
 
+import java.util.UUID;
+
 import za.ac.cput.entity.Statement;
 
 
-/*
+
 public class StatementFactory {
 
     public static Statement buildStatement(
+            String uuid,
             double balance,
             String firstName,
             String lastName
@@ -27,4 +30,4 @@ public class StatementFactory {
                 .build();
     }
 }
-*/
+
