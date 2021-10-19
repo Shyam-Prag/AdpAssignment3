@@ -27,7 +27,7 @@ public class StatementService implements IStatementService {
 
     @Override
     public Statement update(Statement statement) {
-        if(this.repository.existsById(statement.getUuid()))
+        if(this.repository.existsById(statement.getId()))
             return this.repository.save(statement);
         return null;
     }
