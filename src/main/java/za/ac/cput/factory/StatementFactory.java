@@ -16,7 +16,7 @@ import za.ac.cput.entity.Statement;
 public class StatementFactory {
 
     public static Statement buildStatement(
-            String uuid,
+            String id,
             double balance,
             String firstName,
             String lastName
@@ -24,6 +24,7 @@ public class StatementFactory {
 
     {
         return new Statement.Builder()
+                .setID(id)
                 .setBalance(balance)
                 .setFirstName(firstName)
                 .setLastName(lastName)

@@ -27,16 +27,16 @@ public class StatementService implements IStatementService {
 
     @Override
     public Statement update(Statement statement) {
-        if(this.repository.existsById(statement.getUuid()))
+        if(this.repository.existsById(statement.getId()))
             return this.repository.save(statement);
         return null;
     }
 
     @Override
-    public boolean delete(String uuid) {
-        this.repository.deleteById(uuid);
+    public boolean delete(String id) {
+        this.repository.deleteById(id);
 
-        if(this.repository.existsById(uuid))
+        if(this.repository.existsById(id))
             return false;
         else
             return true;
