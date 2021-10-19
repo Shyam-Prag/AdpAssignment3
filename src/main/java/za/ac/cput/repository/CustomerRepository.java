@@ -1,4 +1,7 @@
 package za.ac.cput.repository;
 
-public class CustomerRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import za.ac.cput.entity.Customer;
+
+public interface CustomerRepository extends JpaRepository<Customer,String> {
 }
