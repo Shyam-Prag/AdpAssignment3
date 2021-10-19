@@ -1,10 +1,13 @@
+/*
 package za.ac.cput.entity;
+*/
 /**
  * Statement.java
  * Entity for the Statement class
  * Author: Waseem Osman (216112338)
  * 10/06/2021
- */
+ *//*
+
 public class Statement {
 
     private final double balance;
@@ -48,3 +51,4 @@ public class Statement {
     }
 }
 
+*/

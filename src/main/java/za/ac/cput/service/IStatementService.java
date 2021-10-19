@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service;
 
 import za.ac.cput.entity.Address;
@@ -9,3 +10,4 @@ public interface IStatementService extends IService <Statement, String>{
     public List<Statement> getAll();
 
 }
+*/

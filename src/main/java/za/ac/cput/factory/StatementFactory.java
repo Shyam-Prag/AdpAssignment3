@@ -13,7 +13,7 @@ import za.ac.cput.entity.Statement;
 
 
 
-public class StatementFactory {
+/*public class StatementFactory {
 
     public static Statement buildStatement(
             String uuid,
@@ -29,5 +29,5 @@ public class StatementFactory {
                 .setLastName(lastName)
                 .build();
     }
-}
+}*/
 
