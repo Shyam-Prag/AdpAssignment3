@@ -24,7 +24,7 @@ public class ContactFactory {
         String phoneNum ="AS"+Integer.toString(rand)+ name.charAt(0);
 
         return new Contact.Builder()
-                .phone(phoneNum)
+                .id(phoneNum)
                 .name(name)
                 .email(email)
                 .mobile(mobile)
