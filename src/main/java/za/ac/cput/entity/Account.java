@@ -1,5 +1,14 @@
 package za.ac.cput.entity;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.UUID;
+
 /**
  * Account.java
  * Entity for Bank class
@@ -7,13 +16,51 @@ package za.ac.cput.entity;
  * 10/06/2021
  */
 
-public class Account {
+@Entity
+@Table (name = "Account")
+public class Account implements Serializable {
+    @javax.persistence.Id
+    @Column(name = "id", nullable = false)
+    private UUID id;
 
-    private double balance, interestRate;
-    private String interestPeriod;
+    @Id
+    @GeneratedValue
+    private String accountID, balance, interestRate, interestPeriod;
+
+    public Account() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+
+
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public String getInterestRate() {
+        return interestRate;
+    }
+
+    public String getInterestPeriod() {
+        return interestPeriod;
+    }
+
+
 
 
     private Account(AccountBuilder builder) {
+        this.accountID = builder.id;
         this.balance = builder.balance;
         this.interestRate = builder.interestRate;
         this.interestPeriod = builder.interestPeriod;
@@ -21,17 +68,20 @@ public class Account {
 
     public static class AccountBuilder {
 
-        private double balance, interestRate;
-        private String interestPeriod;
+        private String id, balance, interestRate, interestPeriod;
 
 
-        public AccountBuilder setBalance(double balance) {
+        public AccountBuilder setId(String id) {
+            this.id = id;
+            return this;
+        }
+        public AccountBuilder setBalance(String balance) {
             this.balance = balance;
             return this;
 
         }
 
-        public AccountBuilder setInterestRate(double interestRate) {
+        public AccountBuilder setInterestRate(String interestRate) {
             this.interestRate = interestRate;
             return this;
 
