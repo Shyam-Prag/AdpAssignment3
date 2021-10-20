@@ -24,8 +24,8 @@ public class ContactService implements IContactService{
 
     @Override
     public Contact update(Contact contact) {
-        if(this.repository.existsById(contact.getId()))
-            return this.repository.save(contact);
+/*        if(this.repository.existsById(contact.getId()))
+            return this.repository.save(contact);*/
         return null;
     }
 
