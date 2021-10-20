@@ -6,9 +6,24 @@ package za.ac.cput.entity;
  Date: 10/06/21
 */
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Customer")
 public class Customer
 {
-    private String id,firstName, lastName;
+    @Id
+    private String id;
+    private String firstName;
+    private String lastName;
+
+    public Customer()
+    {
+
+    }
 
     private Customer (Builder build)
     {
@@ -58,5 +73,14 @@ public class Customer
             return new Customer(this);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
