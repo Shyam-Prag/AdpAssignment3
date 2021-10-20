@@ -12,7 +12,8 @@ public class ContactFactory {
 
             String name,
             String email,
-            String mobile
+            String mobile,
+            String id
     )
 
     {
@@ -20,11 +21,9 @@ public class ContactFactory {
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$") ||mobile.isEmpty())
             return null;
 
-        int rand = (int)(Math.random()*(1000-1+1)+1);
-        String phoneNum ="AS"+Integer.toString(rand)+ name.charAt(0);
 
         return new Contact.Builder()
-                .id(phoneNum)
+                .id(id)
                 .name(name)
                 .email(email)
                 .mobile(mobile)

@@ -1,0 +1,8 @@
+za\ac\cput\controller\AddressControllerTest.class
+za\ac\cput\factory\BankFactoryTest.class
+za\ac\cput\factory\AddressFactoryTest.class
+za\ac\cput\entity\AccountTest.class
+za\ac\cput\entity\BankTest.class
+za\ac\cput\factory\CustomerFactoryTest.class
+za\ac\cput\entity\StatementTest.class
+za\ac\cput\factory\ContactFactoryTest.class
