@@ -21,10 +21,10 @@ public class ContactFactory {
             return null;
 
         int rand = (int)(Math.random()*(1000-1+1)+1);
-        String phoneNum ="AS"+Integer.toString(rand)+ name.charAt(0);
+        /*String phoneNum ="AS"+Integer.toString(rand)+ name.charAt(0);*/
 
         return new Contact.Builder()
-                .id(phoneNum)
+          /*      .id()*/
                 .name(name)
                 .email(email)
                 .mobile(mobile)
