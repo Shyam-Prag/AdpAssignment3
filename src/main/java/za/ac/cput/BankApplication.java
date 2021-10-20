@@ -14,7 +14,7 @@ public class BankApplication {
     public static void main(String[] args) {
         SpringApplication.run(BankApplication.class, args);
     }
-
+/*
     @Bean
     public CorsFilter corsFilter(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -32,5 +32,5 @@ public class BankApplication {
 
         return new CorsFilter(urlBasedCorsConfigurationSource);
 
-    }
+    }*/
 }
