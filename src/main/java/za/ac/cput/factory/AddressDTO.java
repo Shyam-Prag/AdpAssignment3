@@ -1,10 +1,10 @@
 package za.ac.cput.factory;
 
 public class AddressDTO {
-    private  String street;
-    private  String houseNumber;
-    private  String zipCode;
-    private  String city;
+    private String street;
+    private String houseNumber;
+    private String zipCode;
+    private String city;
 
     public String getStreet() {
         return street;
@@ -37,8 +37,4 @@ public class AddressDTO {
     public void setCity(String city) {
         this.city = city;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 210c3d9aecf84639c4d5ea8bbc52d2123e0d6742

@@ -6,30 +6,23 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.*;
 import za.ac.cput.entity.Address;
 import za.ac.cput.factory.AddressFactory;
 
-import javax.swing.*;
-
-import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class AddressControllerTest {
+public class AddressControllerTest {
+
+    private static Address address = AddressFactory.buildAddress("Middel","67","7764","CPT");
 
     @Autowired
     private TestRestTemplate testRestTemplate;
     private HttpHeaders httpHeaders = new HttpHeaders();
-    @LocalServerPort
-    private int portServer;
-    private final String  baseUrl = "http://localhost:"+portServer+"/address";
-    private static Address address = AddressFactory.buildAddress("","Middel","67","7764","CPT");
-
+    private final String addressURL = "http://localhost:8080/address";
 
     private String username = "username";
     private String password = "password";
@@ -46,13 +39,12 @@ class AddressControllerTest {
         address = postResponse.getBody();
         System.out.println("Data saved: " + address);
         assertEquals(address.getUuid(), postResponse.getBody().getUuid());
+
     }
 
     @Test
     void b_read(){
         String url = "/Address/read/";
-        httpHeaders.setBasicAuth(username, password);
-        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
         ResponseEntity<Address> responseEntity = testRestTemplate.getForEntity(url, Address.class);
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
@@ -66,17 +58,18 @@ class AddressControllerTest {
 
         String url = "/Address/update";
         httpHeaders.setBasicAuth(username, password);
-        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
-        ResponseEntity<Address> responseEntity = testRestTemplate.postForEntity(url, updatedAddress, Address.class);
-        assertNotNull(responseEntity);
-        System.out.println("Updated data: " + responseEntity.getBody());
+        HttpEntity<Address> httpEntity = new HttpEntity<>(updatedAddress, httpHeaders);
+        System.out.println("Url used to update the Address: " + url);
+        System.out.println("Updated Address: "+ updatedAddress);
+        ResponseEntity<Address> responseUpdate = testRestTemplate.exchange(url, HttpMethod.POST, httpEntity, Address.class);
+        assertNotNull(responseUpdate.getBody());
     }
 
     @Test
     void d_getAll(){
         String url = "/Address/getall";
-        httpHeaders.setBasicAuth(username, password);
-        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        HttpEntity<String> httpEntity = new HttpEntity<>(null, httpHeaders);
         ResponseEntity<String> responseEntity = testRestTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
         System.out.println("read all");
         System.out.println(responseEntity);
@@ -85,11 +78,8 @@ class AddressControllerTest {
 
     @Test
     void e_delete(){
-        String url = "/Address/delete/" ;
-        httpHeaders.setBasicAuth(username, password);
-        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
-        ResponseEntity<Address> responseEntity = testRestTemplate.getForEntity(url, Address.class);
-        assertNotNull(responseEntity.getBody().getUuid(), "Address uuid{'" + address.getUuid() + "'} was not found.");
+        String url = "/Address/delete" + address.getUuid();
+        System.out.println("Url used to delete the contact: " + url);
         testRestTemplate.delete(url);
     }
 

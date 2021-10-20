@@ -16,10 +16,9 @@ public class AddressController {
 
     @Autowired
     private AddressService addressService;
-
-    @PostMapping("/create")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Address create(@RequestBody Address address){
-        Address newAddress1 = AddressFactory.buildAddress(address.getUuid(), address.getStreet(),address.getHouseNumber(),address.getCity(), address.getZipCode());
+        Address newAddress1 = AddressFactory.buildAddress(address.getStreet(),address.getHouseNumber(),address.getCity(), address.getZipCode());
         return addressService.create(newAddress1);
     }
 

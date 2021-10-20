@@ -48,13 +48,6 @@ public class Bank {
         this.name="First National Bank";
 
     }
-
-
-
-
-
-
-
 }
 
 

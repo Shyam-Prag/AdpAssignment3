@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class AddressFactory {
     public static Address buildAddress(
-            String uuid,
+
             String addressStreet,
             String houseNumber,
             String zipCode,
@@ -22,9 +22,10 @@ public class AddressFactory {
         if (addressStreet.isEmpty()|| houseNumber.isEmpty()||zipCode.isEmpty()||city.isEmpty())
         return null;
 
+        int rand = (int) (Math.random() * (1000 - 1 + 1) + 1);
+        String uID = "ADD" + Integer.toString(rand) + addressStreet.charAt(0);
 
-
-        Address address = new Address.Builder().setUuid(uuid)
+        Address address = new Address.Builder().setUuid(uID)
                 .setStreet(addressStreet)
                 .setHouseNumber(houseNumber)
                 .setZipCode(zipCode)

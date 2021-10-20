@@ -12,7 +12,6 @@ import javax.persistence.*;
     @Table(name = "Address")
     public class Address {
         @Id
-        @GeneratedValue
         private  String uuid;
         private  String street;
         private  String houseNumber;
