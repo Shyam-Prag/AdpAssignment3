@@ -24,16 +24,22 @@ class AddressControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
+    private HttpHeaders httpHeaders = new HttpHeaders();
     @LocalServerPort
     private int portServer;
     private final String  baseUrl = "http://localhost:"+portServer+"/address";
-    String uuid123 = UUID.randomUUID().toString();
     private static Address address = AddressFactory.buildAddress("","Middel","67","7764","CPT");
+
+
+    private String username = "username";
+    private String password = "password";
 
     @Test
     void a_create(){
         String url =  "/Address/create";
-        ResponseEntity<Address> postResponse = testRestTemplate.postForEntity(url, address, Address.class);
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
+        ResponseEntity<Address> postResponse = testRestTemplate.exchange(url,HttpMethod.POST ,httpEntity, Address.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         assertEquals(postResponse.getStatusCode(), HttpStatus.OK);
@@ -45,6 +51,8 @@ class AddressControllerTest {
     @Test
     void b_read(){
         String url = "/Address/read/";
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
         ResponseEntity<Address> responseEntity = testRestTemplate.getForEntity(url, Address.class);
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
@@ -57,6 +65,8 @@ class AddressControllerTest {
         Address updatedAddress = new Address.Builder().copy(address).setHouseNumber("55").setStreet("Flat").build();
 
         String url = "/Address/update";
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
         ResponseEntity<Address> responseEntity = testRestTemplate.postForEntity(url, updatedAddress, Address.class);
         assertNotNull(responseEntity);
         System.out.println("Updated data: " + responseEntity.getBody());
@@ -65,8 +75,8 @@ class AddressControllerTest {
     @Test
     void d_getAll(){
         String url = "/Address/getall";
-        HttpHeaders httpHeaders = new HttpHeaders();
-        HttpEntity<String> httpEntity = new HttpEntity<>(null, httpHeaders);
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
         ResponseEntity<String> responseEntity = testRestTemplate.exchange(url, HttpMethod.GET, httpEntity, String.class);
         System.out.println("read all");
         System.out.println(responseEntity);
@@ -76,6 +86,8 @@ class AddressControllerTest {
     @Test
     void e_delete(){
         String url = "/Address/delete/" ;
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address,httpHeaders);
         ResponseEntity<Address> responseEntity = testRestTemplate.getForEntity(url, Address.class);
         assertNotNull(responseEntity.getBody().getUuid(), "Address uuid{'" + address.getUuid() + "'} was not found.");
         testRestTemplate.delete(url);
