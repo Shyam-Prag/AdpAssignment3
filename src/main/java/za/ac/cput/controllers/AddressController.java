@@ -23,7 +23,7 @@ public class AddressController {
         return addressService.create(newAddress1);
     }
 
-    @PostMapping("/read/{uuid}")
+    @GetMapping("/read/{uuid}")
     public Address read(@PathVariable String addressId){
         return addressService.read(addressId);
     }
@@ -33,12 +33,12 @@ public class AddressController {
         return addressService.update(address);
     }
 
-    @PostMapping("/delete/{uuid}")
+    @DeleteMapping("/delete/{uuid}")
     public boolean delete(@PathVariable String addressId) {
         return addressService.delete(addressId);
     }
 
-    @PostMapping("/getall")
+    @GetMapping("/getall")
     public List<Address> getAll(){
         return addressService.getAll();
     }

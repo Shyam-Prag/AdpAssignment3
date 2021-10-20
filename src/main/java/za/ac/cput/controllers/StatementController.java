@@ -1,17 +1,21 @@
+/*
 package za.ac.cput.controllers;
 
+*/
 /*
 Author: Waseem Osman 216112338
-Due Date:20 October 2021 */
+Due Date:20 October 2021 *//*
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Statement;
-import za.ac.cput.factory.StatementFactory;
+//import za.ac.cput.factory.StatementFactory;
 import za.ac.cput.service.StatementService;
 import java.util.List;
 
 
-@RestController
+*/
+/*@RestController
 @RequestMapping("/Statement")
 public class StatementController {
     @Autowired
@@ -43,4 +47,6 @@ public class StatementController {
         return statementService.getAll();
     }
 
-}
+}*//**/
+
+

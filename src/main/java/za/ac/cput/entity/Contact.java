@@ -1,26 +1,61 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
+
 /**
  * Contact.java
  * Entity Contact
  * @author Sayed Abdurra'uf Peters 218149859
  */
-public class Contact {
 
-    private String phone,email,mobile,name;
+@Entity
+@Table(name = "Contact")
+public class Contact implements Serializable {
+    @Id
+    @GeneratedValue
+    private String id;
+    private String email,mobile,name;
+
+
+
+    public Contact(){
+
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     private Contact(Builder builder){
         this.name = builder.name;
         this.mobile = builder.mobile;
-        this.phone = builder.phone;
+        this.id = builder.id;
         this.email = builder.email;
     }
 
     public static class Builder{
 
-    private String phone,email,mobile,name;
+    private String id,email,mobile,name;
 
-        public Builder phone(String phone) {
-            this.phone = phone;
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
 
@@ -34,8 +69,8 @@ public class Contact {
             return this;
         }
 
-        public Builder name(String email) {
-            this.name = email;
+        public Builder name(String name) {
+            this.name = name;
             return this;
         }
         public Contact build(){
@@ -49,7 +84,7 @@ public class Contact {
                 "name='" + name + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone='" + id + '\'' +
                 '}';
     }
 }

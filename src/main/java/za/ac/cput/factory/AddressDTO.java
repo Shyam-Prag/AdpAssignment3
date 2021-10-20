@@ -37,4 +37,8 @@ public class AddressDTO {
     public void setCity(String city) {
         this.city = city;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 210c3d9aecf84639c4d5ea8bbc52d2123e0d6742
