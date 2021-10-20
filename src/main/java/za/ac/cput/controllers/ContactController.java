@@ -9,16 +9,17 @@ import za.ac.cput.service.ContactService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Contact")
+@RequestMapping("/contact")
 public class ContactController {
 
     @Autowired
     private ContactService contactService;
 
-    @PostMapping("/create")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Contact create(@RequestBody Contact contact){
-        Contact contact1 = ContactFactory.buildContact(contact.getName(),contact.getEmail(),contact.getMobile(),contact.getId());
-        return contactService.create(contact1);
+
+        Contact newContact = ContactFactory.buildContact(contact.getName(),contact.getEmail(),contact.getMobile());
+        return contactService.create(newContact);
     }
 
     @PostMapping("/read/{id}")

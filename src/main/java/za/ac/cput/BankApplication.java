@@ -12,10 +12,14 @@ import java.util.Arrays;
 @SpringBootApplication
 public class BankApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BankApplication.class, args);
-    }
 
-    @Bean
+            SpringApplication.run(BankApplication.class, args);
+
+
+        }
+
+
+ /*   @Bean
     public CorsFilter corsFilter(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
@@ -32,5 +36,5 @@ public class BankApplication {
 
         return new CorsFilter(urlBasedCorsConfigurationSource);
 
-    }
+    }*/
 }

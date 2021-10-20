@@ -17,7 +17,6 @@ import java.io.Serializable;
 @Table(name = "Contact")
 public class Contact implements Serializable {
     @Id
-    @GeneratedValue
     private String id;
     private String email,mobile,name;
 
@@ -25,6 +24,13 @@ public class Contact implements Serializable {
 
     public Contact(){
 
+    }
+
+    private Contact(Builder builder){
+        this.name = builder.name;
+        this.mobile = builder.mobile;
+        this.id = builder.id;
+        this.email = builder.email;
     }
 
     public String getId() {
@@ -43,35 +49,36 @@ public class Contact implements Serializable {
         return name;
     }
 
-    private Contact(Builder builder){
-        this.name = builder.name;
-        this.mobile = builder.mobile;
-        this.id = builder.id;
-        this.email = builder.email;
-    }
-
     public static class Builder{
 
     private String id,email,mobile,name;
 
-        public Builder id(String id) {
+        public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
-        public Builder email(String email){
+        public Builder setEmail(String email){
             this.email = email;
             return this;
         }
 
-        public Builder mobile(String mobile) {
+        public Builder setMobile(String mobile) {
             this.mobile = mobile;
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder setName(String name) {
             this.name = name;
             return this;
+        }
+
+        public Builder copy (Contact contact){
+            this.id = contact.id;
+            this.email= contact.email;
+            this.mobile= contact.mobile;
+            this.name= contact.name;
+            return  this;
         }
         public Contact build(){
             return new Contact(this);
@@ -84,7 +91,7 @@ public class Contact implements Serializable {
                 "name='" + name + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + id + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

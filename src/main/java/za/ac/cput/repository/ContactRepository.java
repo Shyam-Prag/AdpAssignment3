@@ -6,4 +6,5 @@ import za.ac.cput.entity.Contact;
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, String> {
+
 }

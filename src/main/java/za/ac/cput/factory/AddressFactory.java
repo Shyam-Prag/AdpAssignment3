@@ -8,8 +8,6 @@ package za.ac.cput.factory;
 
 import za.ac.cput.entity.Address;
 
-import java.util.UUID;
-
 public class AddressFactory {
     public static Address buildAddress(
             String uuid,

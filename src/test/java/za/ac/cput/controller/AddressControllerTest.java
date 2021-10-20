@@ -6,14 +6,12 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import za.ac.cput.entity.Address;
 import za.ac.cput.factory.AddressFactory;
-
-import javax.swing.*;
-
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,24 +20,27 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AddressControllerTest {
 
+    private static Address address = AddressFactory.buildAddress("","Middel","67","7764","CPT");
+
     @Autowired
     private TestRestTemplate testRestTemplate;
-    @LocalServerPort
-    private int portServer;
-    private final String  baseUrl = "http://localhost:"+portServer+"/address";
-    String uuid123 = UUID.randomUUID().toString();
-    private static Address address = AddressFactory.buildAddress("","Middel","67","7764","CPT");
+    private HttpHeaders httpHeaders = new HttpHeaders();
+    private final String addressURL = "http://localhost:8090/Address";
+
+    private String username = "username";
+    private String password = "password";
 
     @Test
     void a_create(){
-        String url =  "/Address/create";
-        ResponseEntity<Address> postResponse = testRestTemplate.postForEntity(url, address, Address.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
-        assertEquals(postResponse.getStatusCode(), HttpStatus.OK);
-        address = postResponse.getBody();
-        System.out.println("Data saved: " + address);
-        assertEquals(address.getUuid(), postResponse.getBody().getUuid());
+        String url = addressURL + "/create";
+        httpHeaders.setBasicAuth(username, password);
+        HttpEntity<Address> httpEntity = new HttpEntity<>(address, httpHeaders);
+        ResponseEntity<Address> responseEntity = testRestTemplate.exchange(url, HttpMethod.POST, httpEntity, Address.class);
+        assertNotNull(responseEntity);
+        assertNotNull(responseEntity.getBody());
+        address = responseEntity.getBody();
+        System.out.println("New Address: "+address);
+        assertEquals(address.getUuid(), responseEntity.getBody().getUuid());
     }
 
     @Test

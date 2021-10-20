@@ -15,12 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 
 public class ContactFactoryTest {
-    Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274","1");
-    Contact c2 = ContactFactory.buildContact("Ziyaad","ziyaad@gmail.com","0836438274","2");
+    Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
+    Contact c2 = ContactFactory.buildContact("Ziyaad","ziyaad@gmail.com","0836438274");
 
     @Test
     void buildContact(){
-        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274","1");
+        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
         assertNotNull(c1);
         System.out.println(c1);
     }
@@ -28,7 +28,7 @@ public class ContactFactoryTest {
     //equality test
     @Test
     void testEquality(){
-        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274","1");
+        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
         Contact c2 = c1;
         assertEquals(c1,c2);
     }
@@ -37,7 +37,7 @@ public class ContactFactoryTest {
     @Disabled
     @Test
     void testEqualityDisable(){
-        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274","1");
+        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
         Contact c2 = c1;
         assertEquals(c1,c2);
     }
@@ -46,7 +46,7 @@ public class ContactFactoryTest {
     @Test
     void testTimeout()throws InterruptedException{
         Thread.sleep(1000);
-        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274","1");
+        Contact c1 = ContactFactory.buildContact("Sayed","sayed@gmail.com","0836438274");
         Contact c2 = c1;
         assertEquals(c1,c2);
     }

@@ -11,18 +11,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-            .withUser("username")
-            .password(encoder().encode("password"))
-            .roles("ADMIN");
+                .withUser("username")
+                .password(encoder().encode("password"))
+                .roles("ADMIN");
     }
-    @Bean
-    public PasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
-    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic()
@@ -34,6 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable();
     }
 
-
-
+    @Bean
+    public PasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
+    }
 }
