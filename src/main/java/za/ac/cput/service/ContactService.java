@@ -1,11 +1,13 @@
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Contact;
 import za.ac.cput.repository.ContactRepository;
 
 import java.util.List;
 
+@Service
 public class ContactService implements IContactService{
     private static ContactService service = null;
 
@@ -24,8 +26,8 @@ public class ContactService implements IContactService{
 
     @Override
     public Contact update(Contact contact) {
-/*        if(this.repository.existsById(contact.getId()))
-            return this.repository.save(contact);*/
+        if(this.repository.existsById(contact.getId()))
+            return this.repository.save(contact);
         return null;
     }
 

@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+
 /**
  * Contact.java
  * Entity Contact
@@ -14,14 +15,21 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "Contact")
-public class Contact  {
+public class Contact implements Serializable {
     @Id
     @GeneratedValue
-    private String id,email,mobile,name;
+    private String id;
+    private String email,mobile,name;
 
-/*    public String getId() {
+
+
+    public Contact(){
+
+    }
+
+    public String getId() {
         return id;
-    }*/
+    }
 
     public String getEmail() {
         return email;
@@ -38,9 +46,7 @@ public class Contact  {
     private Contact(Builder builder){
         this.name = builder.name;
         this.mobile = builder.mobile;
-/*
         this.id = builder.id;
-*/
         this.email = builder.email;
     }
 
@@ -48,10 +54,10 @@ public class Contact  {
 
     private String id,email,mobile,name;
 
-/*        public Builder id(String id) {
+        public Builder id(String id) {
             this.id = id;
             return this;
-        }*/
+        }
 
         public Builder email(String email){
             this.email = email;
