@@ -13,10 +13,10 @@ import za.ac.cput.entity.Statement;
 
 
 
-/*public class StatementFactory {
+public class StatementFactory {
 
     public static Statement buildStatement(
-            String uuid,
+            String id,
             double balance,
             String firstName,
             String lastName
@@ -24,10 +24,11 @@ import za.ac.cput.entity.Statement;
 
     {
         return new Statement.Builder()
+                .setID(id)
                 .setBalance(balance)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .build();
     }
-}*/
+}
 

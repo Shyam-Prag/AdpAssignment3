@@ -1,29 +1,30 @@
-/*
+package za.ac.cput.controllers;/*
 package za.ac.cput.controllers;
 
 */
 /*
 Author: Waseem Osman 216112338
-Due Date:20 October 2021 *//*
+Due Date:20 October 2021 */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Statement;
-//import za.ac.cput.factory.StatementFactory;
+import za.ac.cput.factory.StatementFactory;
 import za.ac.cput.service.StatementService;
 import java.util.List;
 
 
-*/
-/*@RestController
+
+@RestController
 @RequestMapping("/Statement")
 public class StatementController {
     @Autowired
     private StatementService statementService;
 
+
     @PostMapping("/create")
     public Statement create(@RequestBody Statement statement){
-        Statement newStatement1 = StatementFactory.buildStatement(statement.getUuid(), statement.getBalance(), statement.getFirstName(), statement.getLastName());
+        Statement newStatement1 = StatementFactory.buildStatement(statement.getId(), statement.getBalance(), statement.getFirstName(), statement.getLastName());
         return statementService.create(newStatement1);
     }
 
@@ -47,6 +48,6 @@ public class StatementController {
         return statementService.getAll();
     }
 
-}*//**/
+}
 
 
