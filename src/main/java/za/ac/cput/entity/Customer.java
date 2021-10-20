@@ -73,6 +73,14 @@ public class Customer
             return new Customer(this);
         }
 
+        public Builder copy(Customer customer)
+        {
+            this.id= customer.id;
+            this.firstName= customer.firstName;
+            this.lastName= customer.lastName;
+            return this;
+        }
+
     }
 
     @Override
