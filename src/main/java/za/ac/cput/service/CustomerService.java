@@ -39,6 +39,6 @@ public class CustomerService implements ICustomerService{
 
     @Override
     public List<Customer> getAll() {
-        return null;
+        return (List<Customer>) customerRepository;
     }
 }
