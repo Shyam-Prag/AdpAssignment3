@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
 
-    @Test
+/*    @Test
     void TestNull() {
 
         Account acc = AccountFactory.build(5000.00, 12.5, "3 months");
@@ -35,5 +35,5 @@ class AccountTest {
         Account acc = AccountFactory.build(5000.00, 12.5, "3 months");
         Account acc1 = AccountFactory.build(5000.00, 12.5, "3 months");
         assertNotSame(acc, acc1);
-    }
+    }*/
 }
