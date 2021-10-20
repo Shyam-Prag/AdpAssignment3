@@ -1,14 +1,19 @@
 package za.ac.cput.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Customer;
 import za.ac.cput.repository.CustomerRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
 public class CustomerService implements ICustomerService{
 
-    private static CustomerService customerService;
+    private static CustomerService customerService=null;
 
+    @Autowired
     private CustomerRepository customerRepository;
 
     public Customer create(Customer customer) {
@@ -39,6 +44,6 @@ public class CustomerService implements ICustomerService{
 
     @Override
     public List<Customer> getAll() {
-        return (List<Customer>) customerRepository;
+        return this.customerRepository.findAll().stream().collect(Collectors.toList());
     }
 }
