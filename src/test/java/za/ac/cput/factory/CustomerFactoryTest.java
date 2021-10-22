@@ -29,6 +29,13 @@ class CustomerFactoryTest
     }
 
     @Test
+    void testCreation()
+    {
+        cus1=CustomerFactory.createCustomer("John","Doe");
+        assertNotNull(cus1);
+    }
+
+    @Test
     void testCustomerIdentity()
     {
         assertSame(cus1,cus3);
