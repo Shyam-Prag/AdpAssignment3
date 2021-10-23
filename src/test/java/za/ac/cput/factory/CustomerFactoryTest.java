@@ -31,7 +31,6 @@ class CustomerFactoryTest
     @Test
     void testCreation()
     {
-        cus1=CustomerFactory.createCustomer("John","Doe");
         assertNotNull(cus1);
     }
 
@@ -39,18 +38,17 @@ class CustomerFactoryTest
     void testCustomerIdentity()
     {
         assertSame(cus1,cus3);
-        System.out.println("Objects are identical.");
+        System.out.println("Test PASSED");
     }
 
     @Test
     void testCustomerEquality()
     {
         assertEquals(cus1, cus3);
-        System.out.println("Objects are equal.");
+        System.out.println("Test PASSED");
     }
 
     @Test
-    @Timeout(1)
     void testCustomerTimeout()
     {
         try
@@ -63,13 +61,5 @@ class CustomerFactoryTest
             System.out.println("Exception: "+iEx.getMessage());
             System.out.println("Test timed out");
         }
-    }
-
-    @Test
-    @Disabled("Test temporarily disabled due to maintenance.")
-    void testCustomerDisabled()
-    {
-        assertEquals(cus1, cus2);
-        System.out.println("Objects are equal.");
     }
 }
