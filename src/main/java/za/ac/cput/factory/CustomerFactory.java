@@ -14,9 +14,6 @@ public class CustomerFactory
 {
     public static Customer createCustomer (String firstName, String lastName)
     {
-        if (firstName.isEmpty()||lastName.isEmpty()||firstName.matches("[^a-zA-Z]")||lastName.matches("[^a-zA-Z]"))
-            return null;
-
         String id= UUID.randomUUID().toString(); //class needed to generate a unique ID
         return new Customer.Builder()
                 .setID(id)
