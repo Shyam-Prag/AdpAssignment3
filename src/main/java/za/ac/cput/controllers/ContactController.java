@@ -15,9 +15,9 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @PostMapping("/create")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Contact create(@RequestBody Contact contact){
-        Contact contact1 = ContactFactory.buildContact(contact.getName(),contact.getEmail(),contact.getMobile(),contact.getId());
+        Contact contact1 = ContactFactory.buildContact(contact.getName(),contact.getEmail(),contact.getMobile());
         return contactService.create(contact1);
     }
 
@@ -31,7 +31,7 @@ public class ContactController {
         return contactService.update(contact);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable String contactId) {
         return contactService.delete(contactId);
     }
