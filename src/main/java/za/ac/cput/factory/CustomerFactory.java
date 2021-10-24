@@ -14,11 +14,18 @@ public class CustomerFactory
 {
     public static Customer createCustomer (String firstName, String lastName)
     {
-        String id= UUID.randomUUID().toString(); //class needed to generate a unique ID
+        String id= UUID.randomUUID().toString(); //package needed to generate a unique ID
         return new Customer.Builder()
                 .setID(id)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .build();
+    }
+    public static CustomerDTO customerDTO(Customer customer){
+        CustomerDTO dto = new CustomerDTO();
+        dto.setFirstName(customer.getFirstName());
+        dto.setLastName(customer.getLastName());
+
+        return dto;
     }
 }
