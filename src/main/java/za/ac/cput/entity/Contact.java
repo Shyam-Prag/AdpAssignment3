@@ -17,10 +17,8 @@ import java.io.Serializable;
 @Table(name = "Contact")
 public class Contact implements Serializable {
     @Id
-    @GeneratedValue
     private String id;
     private String email,mobile,name;
-
 
 
     public Contact(){
@@ -54,23 +52,30 @@ public class Contact implements Serializable {
 
     private String id,email,mobile,name;
 
-        public Builder id(String id) {
+        public Builder setId(String id) {
             this.id = id;
             return this;
         }
 
-        public Builder email(String email){
+        public Builder setEmail(String email){
             this.email = email;
             return this;
         }
 
-        public Builder mobile(String mobile) {
+        public Builder setMobile(String mobile) {
             this.mobile = mobile;
             return this;
         }
 
-        public Builder name(String name) {
+        public Builder setName(String name) {
             this.name = name;
+            return this;
+        }
+        public Builder copy(Contact contact){
+            this.id = contact.id;
+            this.name = contact.name;
+            this.mobile = contact.mobile;
+            this.email = contact.email;
             return this;
         }
         public Contact build(){

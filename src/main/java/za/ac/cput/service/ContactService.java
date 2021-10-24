@@ -37,8 +37,9 @@ public class ContactService implements IContactService{
 
         if(this.repository.existsById(id))
             return false;
-        else
+        else {
             return true;
+        }
     }
 
     @Override
