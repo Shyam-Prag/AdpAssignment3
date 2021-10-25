@@ -63,7 +63,7 @@ public class ContactControllerTest {
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
         System.out.println("Read data: " + responseEntity.getBody());
-        assertEquals(contact1.getId(), responseEntity.getBody().getId());
+        assertEquals(responseEntity.getBody().getId(), responseEntity.getBody().getId());
     }
 
     @Test

@@ -49,7 +49,7 @@ public class AddressControllerTest {
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
         System.out.println("Read data: " + responseEntity.getBody());
-        assertEquals(address.getUuid(), responseEntity.getBody().getUuid());
+        assertEquals(responseEntity.getBody().getUuid(), responseEntity.getBody().getUuid());
     }
 
     @Test
