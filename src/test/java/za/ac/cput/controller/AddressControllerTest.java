@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AddressControllerTest {
 
-    private static Address address = AddressFactory.buildAddress("Middel","67","7764","CPT");
+    private static Address address = AddressFactory.buildAddress("Flaat","67","7764","CPT");
 
     @Autowired
     private TestRestTemplate testRestTemplate;
